@@ -43,7 +43,7 @@ main:
 
   movq    $0, %rdx        # as counter
   movl    36(%rsp), %eax
-.add_shift_algo:
+.Booth_Algo:
   testq   $1, %rax        # eax and rax are the same reg
   jz      .add_shift_shift
   addq    40(%rsp), %rax
@@ -51,7 +51,7 @@ main:
   sarq    $1, %rax     
   incq    %rdx
   cmpq    $32, %rdx
-  jl      .add_shift_algo   
+  jl      .Booth_Algo   
 
   movl    %eax, 40(%rsp)
 
